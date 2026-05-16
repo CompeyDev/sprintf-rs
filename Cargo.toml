@@ -9,7 +9,9 @@ repository = "https://github.com/tjol/sprintf-rs"
 keywords = ["printf", "text", "string"]
 categories = ["template-engine", "wasm"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["std"]
+std = []
 
 [dependencies]
 thiserror = "2.0"

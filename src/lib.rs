@@ -50,7 +50,7 @@ pub enum PrintfError {
     Unknown,
 }
 
-pub type Result<T> = std::result::Result<T, PrintfError>;
+pub type Result<T> = core::result::Result<T, PrintfError>;
 
 /// Format a string. (Roughly equivalent to `vsnprintf` or `vasprintf` in C)
 ///

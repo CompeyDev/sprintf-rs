@@ -1,5 +1,5 @@
-use std::convert::{TryFrom, TryInto};
-use std::ffi::{CStr, CString};
+use core::convert::{TryFrom, TryInto};
+use core::ffi::CStr;
 
 use crate::{
     parser::{ConversionSpecifier, ConversionType, NumericParam},
@@ -580,7 +580,8 @@ impl Printf for &CStr {
     }
 }
 
-impl Printf for CString {
+#[cfg(not(feature = "std"))]
+impl Printf for std::ffi::CString {
     fn format(&self, spec: &ConversionSpecifier) -> Result<String> {
         self.as_c_str().format(spec)
     }
