@@ -1,6 +1,7 @@
 use core::convert::{TryFrom, TryInto};
 use core::ffi::CStr;
 
+use crate::compat::*;
 use crate::{
     parser::{ConversionSpecifier, ConversionType, NumericParam},
     PrintfError, Result,
@@ -580,8 +581,7 @@ impl Printf for &CStr {
     }
 }
 
-#[cfg(feature = "std")]
-impl Printf for std::ffi::CString {
+impl Printf for CString {
     fn format(&self, spec: &ConversionSpecifier) -> Result<String> {
         self.as_c_str().format(spec)
     }
