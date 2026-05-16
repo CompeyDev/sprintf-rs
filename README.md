@@ -20,5 +20,5 @@ assert_eq!(s, "3 + 9 = 12\n");
 ```
 
 `libc` is a dev dependency as it is used in the tests to compare results. This
-crate depends on `std` for providing an implementation for `CString` values as
-arguments, but this can be avoided by disabling the `std` feature.
+crate depends on `std` by default, but the default features can be disabled and
+the `no_std` feature can be enabled as an alternative.
