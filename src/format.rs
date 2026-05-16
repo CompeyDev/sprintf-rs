@@ -580,7 +580,7 @@ impl Printf for &CStr {
     }
 }
 
-#[cfg(not(feature = "std"))]
+#[cfg(feature = "std")]
 impl Printf for std::ffi::CString {
     fn format(&self, spec: &ConversionSpecifier) -> Result<String> {
         self.as_c_str().format(spec)
