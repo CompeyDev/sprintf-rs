@@ -11,10 +11,10 @@ categories = ["template-engine", "wasm"]
 
 [features]
 default = ["std"]
-std = []
+std = ["thiserror/std"]
 
 [dependencies]
-thiserror = "2.0"
+thiserror = { version = "2.0", default-features = false }
 
 [dev-dependencies]
 libc = "0.2"
